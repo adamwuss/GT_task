@@ -1,14 +1,22 @@
 import { createStore } from 'vuex'
+import { lineObject } from "@/type";
 
-export default createStore({
+interface Store {
+  dataApi: lineObject[]
+}
+
+export default createStore<Store>({
   state: {
+    dataApi: [],
   },
   getters: {
+    getApiData(state){
+      return state.dataApi
+    }
   },
   mutations: {
+    setApiData(state, data: lineObject[]){
+      state.dataApi = data
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
 })
